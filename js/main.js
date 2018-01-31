@@ -45,4 +45,14 @@ $(() => {
   }
 
   shuffleDeck()
+
+  splitDeck = () => {
+    PLAYER_DECK = MAIN_DECK.splice(0, Math.floor(MAIN_DECK.length / 2))
+    COMPUTER_DECK = MAIN_DECK
+
+    console.log(PLAYER_DECK)
+    console.log(COMPUTER_DECK)
+  }
+
+  splitDeck()
 })
