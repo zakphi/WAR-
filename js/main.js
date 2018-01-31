@@ -7,9 +7,9 @@ $(() => {
     this.numVal = numVal
   }
 
-  const MAIN_DECK = []
-  let PLAYER_DECK = []
-  let COMPUTER_DECK = []
+  const mainDeck = []
+  let playerDeck = []
+  let computerDeck = []
 
   createDeck = () => {
     /*
@@ -23,35 +23,35 @@ $(() => {
     suits.forEach((suit) => {
       faceValues.forEach((faceVal, numVal) => {
         let card = new Card(suit, faceVal, numVal + 2)
-        MAIN_DECK.push(card)
+        mainDeck.push(card)
       })
     })
-    console.log(MAIN_DECK)
+    console.log(mainDeck)
   }
 
   createDeck()
 
   shuffleDeck = () => {
     for(let i = 0; i < 500; i++){
-      let loc1 = Math.floor(Math.random() * MAIN_DECK.length)
-      let loc2 = Math.floor(Math.random() * MAIN_DECK.length)
-      let tmpLoc = MAIN_DECK[loc1]
+      let loc1 = Math.floor(Math.random() * mainDeck.length)
+      let loc2 = Math.floor(Math.random() * mainDeck.length)
+      let tmpLoc = mainDeck[loc1]
 
-      MAIN_DECK[loc1] = MAIN_DECK[loc2]
-      MAIN_DECK[loc2] = tmpLoc
+      mainDeck[loc1] = mainDeck[loc2]
+      mainDeck[loc2] = tmpLoc
     }
 
-    console.log(MAIN_DECK)
+    console.log(mainDeck)
   }
 
   shuffleDeck()
 
   splitDeck = () => {
-    PLAYER_DECK = MAIN_DECK.splice(0, Math.floor(MAIN_DECK.length / 2))
-    COMPUTER_DECK = MAIN_DECK
+    playerDeck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
+    computerDeck = mainDeck
 
-    console.log(PLAYER_DECK)
-    console.log(COMPUTER_DECK)
+    console.log(playerDeck)
+    console.log(computerDeck)
   }
 
   splitDeck()
