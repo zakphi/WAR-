@@ -8,8 +8,8 @@ $(() => {
   }
 
   const MAIN_DECK = []
-  const PLAYER_DECK = []
-  const COMPUTER_DECK = []
+  let PLAYER_DECK = []
+  let COMPUTER_DECK = []
 
   createDeck = () => {
     /*
