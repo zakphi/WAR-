@@ -30,4 +30,19 @@ $(() => {
   }
 
   createDeck()
+
+  shuffleDeck = () => {
+    for(let i = 0; i < 500; i++){
+      let loc1 = Math.floor(Math.random() * MAIN_DECK.length)
+      let loc2 = Math.floor(Math.random() * MAIN_DECK.length)
+      let tmpLoc = MAIN_DECK[loc1]
+
+      MAIN_DECK[loc1] = MAIN_DECK[loc2]
+      MAIN_DECK[loc2] = tmpLoc
+    }
+
+    console.log(MAIN_DECK)
+  }
+
+  shuffleDeck()
 })
