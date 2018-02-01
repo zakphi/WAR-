@@ -51,8 +51,12 @@ $(() => {
     playerDeck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
     computerDeck = mainDeck
 
-    console.log(playerDeck)
-    console.log(computerDeck)
+    console.log('player deck before flip')
+    console.log(playerDeck.map(card => card.numVal))
+    console.log(playerDeck.map(card => card.suit))
+    console.log('computer deck before flip')
+    console.log(computerDeck.map(card => card.numVal))
+    console.log(computerDeck.map(card => card.suit))
   }
 
   splitDeck()
@@ -64,10 +68,10 @@ $(() => {
     console.log('hand')
     console.log(hand.map(card => card.numVal))
     console.log(hand.map(card => card.suit))
-    console.log('player deck')
+    console.log('player deck after flip')
     console.log(playerDeck.map(card => card.numVal))
     console.log(playerDeck.map(card => card.suit))
-    console.log('computer deck')
+    console.log('computer deck after flip')
     console.log(computerDeck.map(card => card.numVal))
     console.log(computerDeck.map(card => card.suit))
 
@@ -98,6 +102,15 @@ $(() => {
       hand.push(playerDeck.shift())
       hand.push(computerDeck.shift())
     }
+    console.log('hand end of war')
+    console.log(hand.map(card => card.numVal))
+    console.log(hand.map(card => card.suit))
+    console.log('player deck end of war')
+    console.log(playerDeck.map(card => card.numVal))
+    console.log(playerDeck.map(card => card.suit))
+    console.log('computer deck end of war')
+    console.log(computerDeck.map(card => card.numVal))
+    console.log(computerDeck.map(card => card.suit))
     compare()
   }
 })
