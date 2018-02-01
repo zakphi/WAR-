@@ -11,7 +11,7 @@ $(() => {
   let playerDeck = []
   let computerDeck = []
 
-  createDeck = () => {
+  function createDeck(){
     /*
       u2660 = spade
       u2665 = heart
@@ -31,7 +31,7 @@ $(() => {
 
   createDeck()
 
-  shuffleDeck = () => {
+  function shuffleDeck(){
     for(let i = 0; i < 500; i++){
       let loc1 = Math.floor(Math.random() * mainDeck.length)
       let loc2 = Math.floor(Math.random() * mainDeck.length)
@@ -46,7 +46,7 @@ $(() => {
 
   shuffleDeck()
 
-  splitDeck = () => {
+  function splitDeck(){
     playerDeck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
     computerDeck = mainDeck
 
