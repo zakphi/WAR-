@@ -11,8 +11,6 @@ $(() => {
   let playerDeck = []
   let computerDeck = []
   let hand = []
-  let playerWon = false
-  let computerWon = false
 
   function createDeck(){
     /*
@@ -87,9 +85,9 @@ $(() => {
     console.log(hand[hand.length - 1].numVal)
     // hand[hand.length - 2].numVal > hand[hand.length - 1].numVal ? playerWon = true : computerWon = true
     if(hand[hand.length - 2].numVal > hand[hand.length - 1].numVal){
-      playerWon = true
+      moveToWinner('player')
     } else if(hand[hand.length - 1].numVal > hand[hand.length - 2].numVal){
-      computerWon = true
+      moveToWinner('computer')
     } else {
       tie()
     }
