@@ -85,9 +85,6 @@ $(() => {
     hand[hand.length - 2] = player
     hand[hand.length - 1] = computer
     */
-    console.log(hand[hand.length - 2].numVal)
-    console.log(hand[hand.length - 1].numVal)
-    // hand[hand.length - 2].numVal > hand[hand.length - 1].numVal ? playerWon = true : computerWon = true
     if(hand[hand.length - 2].numVal > hand[hand.length - 1].numVal){
       moveToWinner('player')
     } else if(hand[hand.length - 1].numVal > hand[hand.length - 2].numVal){
