@@ -91,7 +91,15 @@ $(() => {
     } else if(hand[hand.length - 1].numVal > hand[hand.length - 2].numVal){
       computerWon = true
     } else {
-      console.log('tie')
+      tie()
     }
+  }
+
+  function tie(){
+    for(let i = 0; i < 4; i++){
+      hand.push(playerDeck.shift())
+      hand.push(computerDeck.shift())
+    }
+    compare()
   }
 })
