@@ -110,4 +110,18 @@ $(() => {
     console.log(computerDeck.map(card => card.suit))
     compare()
   }
+
+  function moveToWinner(winner){
+    winner === 'player' ? winner = playerDeck : winner = computerDeck
+
+    for(let i = 0; i < hand.length; i++){
+      winner.push(hand[i])
+    }
+    console.log('player deck end of round')
+    console.log(playerDeck.map(card => card.numVal))
+    console.log(playerDeck.map(card => card.suit))
+    console.log('computer deck end of round')
+    console.log(computerDeck.map(card => card.numVal))
+    console.log(computerDeck.map(card => card.suit))
+  }
 })
