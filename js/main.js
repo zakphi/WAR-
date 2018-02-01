@@ -114,9 +114,7 @@ $(() => {
   function moveToWinner(winner){
     winner === 'player' ? winner = playerDeck : winner = computerDeck
 
-    for(let i = 0; i < hand.length; i++){
-      winner.push(hand[i])
-    }
+    hand.forEach(handCard => winner.push(handCard))
     console.log('player deck end of round')
     console.log(playerDeck.map(card => card.numVal))
     console.log(playerDeck.map(card => card.suit))
