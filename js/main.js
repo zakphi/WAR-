@@ -10,6 +10,7 @@ $(() => {
   const mainDeck = []
   let playerDeck = []
   let computerDeck = []
+  let hand = []
 
   function createDeck(){
     /*
@@ -55,4 +56,21 @@ $(() => {
   }
 
   splitDeck()
+
+  function flipCards(){
+    hand.push(playerDeck.shift())
+    hand.push(computerDeck.shift())
+
+    console.log('hand')
+    console.log(hand.map(card => card.numVal))
+    console.log(hand.map(card => card.suit))
+    console.log('player deck')
+    console.log(playerDeck.map(card => card.numVal))
+    console.log(playerDeck.map(card => card.suit))
+    console.log('computer deck')
+    console.log(computerDeck.map(card => card.numVal))
+    console.log(computerDeck.map(card => card.suit))
+  }
+
+  flipCards()
 })
