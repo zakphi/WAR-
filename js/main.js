@@ -70,7 +70,26 @@ $(() => {
     console.log('computer deck')
     console.log(computerDeck.map(card => card.numVal))
     console.log(computerDeck.map(card => card.suit))
+
+    compare()
   }
 
   flipCards()
+
+  function compare(){
+    /*
+      hand[0] = player
+      hand[1] = computer
+    */
+    console.log(hand[0].numVal)
+    console.log(hand[1].numVal)
+    // hand[0].numVal > hand[1].numVal ? playerWon = true : computerWon = true
+    if(hand[0].numVal > hand[1].numVal){
+      console.log('player won')
+    } else if(hand[1].numVal > hand[0].numVal){
+      console.log('computer won')
+    } else {
+      console.log('tie')
+    }
+  }
 })
