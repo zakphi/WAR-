@@ -28,6 +28,8 @@ $(() => {
       })
     })
     console.log(mainDeck)
+
+    shuffleDeck()
   }
 
   createDeck()
@@ -43,9 +45,9 @@ $(() => {
     }
 
     console.log(mainDeck)
-  }
 
-  shuffleDeck()
+    splitDeck()
+  }
 
   function splitDeck(){
     playerDeck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
@@ -58,8 +60,6 @@ $(() => {
     console.log(computerDeck.map(card => card.numVal))
     console.log(computerDeck.map(card => card.suit))
   }
-
-  splitDeck()
 
   function flipCards(){
     hand.push(playerDeck.shift())
