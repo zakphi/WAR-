@@ -11,6 +11,24 @@ $(() => {
     $('<h1>', {
       'text': 'WAR!'
     }).appendTo('header')
+
+    createStartScreen()
+  }
+
+  function createStartScreen(){
+    $('<article>', {
+      'id': 'start-screen'
+    }).appendTo('#container')
+
+    $('<button>', {
+      'id': 'start',
+      'html': 'start'
+    }).appendTo('#start-screen')
+
+    $('<button>', {
+      'id': 'help',
+      'html': 'help'
+    }).appendTo('#start-screen')
   }
 
   let Card = function(suit, faceVal, numVal){
