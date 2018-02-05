@@ -34,6 +34,14 @@ $(() => {
     }).appendTo('#start-screen')
   }
 
+  function createGameScreen(){
+    $('#start-screen').remove()
+
+    $('<article>', {
+      'id': 'game-screen'
+    }).appendTo('#container')
+  }
+
   let Card = function(suit, faceVal, numVal){
     this.suit = suit
     this.faceVal = faceVal
