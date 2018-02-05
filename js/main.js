@@ -13,6 +13,9 @@ $(() => {
     }).appendTo('header')
 
     createStartScreen()
+
+    $(document).on('click', '#start', createGameScreen)
+    $(document).on('click', '#help', createHelpScreen)
   }
 
   function createStartScreen(){
