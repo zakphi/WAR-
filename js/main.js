@@ -1,6 +1,18 @@
 $(() => {
   console.log('connected')
 
+  function createGame(){
+    $('<section>', {
+      'id': 'container'
+    }).appendTo('body')
+
+    $('<header>').appendTo('#container')
+
+    $('<h1>', {
+      'text': 'WAR!'
+    }).appendTo('header')
+  }
+
   let Card = function(suit, faceVal, numVal){
     this.suit = suit
     this.faceVal = faceVal
@@ -122,4 +134,6 @@ $(() => {
     console.log(computerDeck.map(card => card.numVal))
     console.log(computerDeck.map(card => card.suit))
   }
+
+  createGame()
 })
