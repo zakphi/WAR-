@@ -41,6 +41,8 @@ $(() => {
     $('<article>', {
       'id': 'game-screen'
     }).appendTo('#container')
+
+    createDeck()
   }
 
   function createHelpScreen(){
@@ -79,8 +81,6 @@ $(() => {
 
     shuffleDeck()
   }
-
-  createDeck()
 
   function shuffleDeck(){
     for(let i = 0; i < 500; i++){
