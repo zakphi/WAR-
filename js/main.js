@@ -84,7 +84,6 @@ $(() => {
         mainDeck.push(card)
       })
     })
-    console.log(mainDeck)
 
     shuffleDeck()
   }
@@ -99,36 +98,17 @@ $(() => {
       mainDeck[loc2] = tmpLoc
     }
 
-    console.log(mainDeck)
-
     splitDeck()
   }
 
   function splitDeck(){
     playerDeck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
     computerDeck = mainDeck
-
-    console.log('player deck before flip')
-    console.log(playerDeck.map(card => card.numVal))
-    console.log(playerDeck.map(card => card.suit))
-    console.log('computer deck before flip')
-    console.log(computerDeck.map(card => card.numVal))
-    console.log(computerDeck.map(card => card.suit))
   }
 
   function flipCards(){
     hand.push(playerDeck.shift())
     hand.push(computerDeck.shift())
-
-    console.log('hand')
-    console.log(hand.map(card => card.numVal))
-    console.log(hand.map(card => card.suit))
-    console.log('player deck after flip')
-    console.log(playerDeck.map(card => card.numVal))
-    console.log(playerDeck.map(card => card.suit))
-    console.log('computer deck after flip')
-    console.log(computerDeck.map(card => card.numVal))
-    console.log(computerDeck.map(card => card.suit))
 
     compare()
   }
@@ -152,30 +132,13 @@ $(() => {
       hand.push(playerDeck.shift())
       hand.push(computerDeck.shift())
     }
-    console.log('hand end of war')
-    console.log(hand.map(card => card.numVal))
-    console.log(hand.map(card => card.suit))
-    console.log('player deck end of war')
-    console.log(playerDeck.map(card => card.numVal))
-    console.log(playerDeck.map(card => card.suit))
-    console.log('computer deck end of war')
-    console.log(computerDeck.map(card => card.numVal))
-    console.log(computerDeck.map(card => card.suit))
+
     compare()
   }
 
   function moveToWinner(winner){
     winner === 'player' ? playerDeck = playerDeck.concat(hand) : computerDeck = computerDeck.concat(hand)
     hand = []
-    console.log('hand end of round')
-    console.log(hand.map(card => card.numVal))
-    console.log(hand.map(card => card.suit))
-    console.log('player deck end of round')
-    console.log(playerDeck.map(card => card.numVal))
-    console.log(playerDeck.map(card => card.suit))
-    console.log('computer deck end of round')
-    console.log(computerDeck.map(card => card.numVal))
-    console.log(computerDeck.map(card => card.suit))
   }
 
   createGame()
