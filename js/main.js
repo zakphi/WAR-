@@ -43,6 +43,13 @@ $(() => {
     }).appendTo('#container')
 
     createDeck()
+
+    $('<button>', {
+      'id': 'flip-cards',
+      'html': 'flip'
+    }).appendTo('#game-screen')
+
+    $(document).on('click', '#flip-cards', flipCards)
   }
 
   function createHelpScreen(){
