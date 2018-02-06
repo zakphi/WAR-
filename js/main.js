@@ -133,8 +133,6 @@ $(() => {
     compare()
   }
 
-  flipCards()
-
   function compare(){
     /*
     hand[hand.length - 2] = player
