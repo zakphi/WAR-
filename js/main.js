@@ -15,7 +15,7 @@ $(() => {
     createStartScreen()
 
     $(document).on('click', '#start', createGameScreen)
-    $(document).on('click', '#help', createHelpScreen)
+    $(document).one('click', '#help', createHelpScreen)
   }
 
   function createStartScreen(){
