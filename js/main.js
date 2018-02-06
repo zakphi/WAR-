@@ -43,6 +43,12 @@ $(() => {
     }).appendTo('#container')
   }
 
+  function createHelpScreen(){
+    $('<article>', {
+      'id': 'help-screen'
+    }).appendTo('#container')
+  }
+
   let Card = function(suit, faceVal, numVal){
     this.suit = suit
     this.faceVal = faceVal
