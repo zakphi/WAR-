@@ -36,6 +36,7 @@ $(() => {
 
   function createGameScreen(){
     $('#start-screen').remove()
+    $('#help-screen').remove()
 
     $('<article>', {
       'id': 'game-screen'
