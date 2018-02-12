@@ -56,8 +56,16 @@ $(() => {
     }).appendTo('#game-screen')
 
     $('<article>', {
+      'id': 'player-deck'
+    }).appendTo('#player-cont')
+
+    $('<article>', {
       'id': 'computer-cont'
     }).appendTo('#game-screen')
+
+    $('<article>', {
+      'id': 'computer-deck'
+    }).appendTo('#computer-cont')
   }
 
   function createHelpScreen(){
