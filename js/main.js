@@ -56,6 +56,11 @@ $(() => {
     $('<article>', {
       'id': 'help-screen'
     }).appendTo('#container')
+
+    $('<p>', {
+      'id': 'instructions',
+      'html': 'instructions go here'
+    }).appendTo('#help-screen')
   }
 
   let Card = function(suit, faceVal, numVal){
