@@ -1,0 +1,13 @@
+#player-deck, #computer-deck{
+  width: 200px;
+  height: 350px;
+  border-radius: 5%;
+}
+
+#player-deck{
+  background-color: blue;
+}
+
+#computer-deck{
+  background-color: red;
+}
