@@ -55,6 +55,11 @@ $(() => {
       'id': 'player-cont'
     }).appendTo('#game-screen')
 
+    $('<h3>', {
+      'id': 'player-score',
+      'html': `Player Cards: ${playerDeck.length}`
+    }).appendTo('#player-cont')
+
     $('<article>', {
       'id': 'player-deck'
     }).appendTo('#player-cont')
@@ -62,6 +67,11 @@ $(() => {
     $('<article>', {
       'id': 'computer-cont'
     }).appendTo('#game-screen')
+
+    $('<h3>', {
+      'id': 'computer-score',
+      'html': `Computer Cards: ${computerDeck.length}`
+    }).appendTo('#computer-cont')
 
     $('<article>', {
       'id': 'computer-deck'
@@ -160,6 +170,9 @@ $(() => {
   function moveToWinner(winner){
     winner === 'player' ? playerDeck = playerDeck.concat(hand) : computerDeck = computerDeck.concat(hand)
     hand = []
+
+    $('#player-score').html(`Player Cards: ${playerDeck.length}`)
+    $('#computer-score').html(`Computer Cards: ${computerDeck.length}`)
   }
 
   createGame()
