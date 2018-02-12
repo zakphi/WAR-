@@ -25,12 +25,12 @@ $(() => {
 
     $('<button>', {
       'id': 'start',
-      'html': 'start'
+      'html': 'go to war'
     }).appendTo('#start-screen')
 
     $('<button>', {
       'id': 'help',
-      'html': 'help'
+      'html': 'receive instructions'
     }).appendTo('#start-screen')
   }
 
