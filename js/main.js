@@ -65,6 +65,29 @@ $(() => {
     }).appendTo('#player-cont')
 
     $('<article>', {
+      'id': 'hand-cont'
+    }).appendTo('#game-screen')
+
+    $('<article>', {
+      'id': 'player-card',
+    }).appendTo('#hand-cont')
+
+    $('<span>', {
+      'class': 'face-val'
+    }).appendTo('#player-card')
+
+    $('<span>', {
+      'class': 'suit'
+    }).appendTo('#player-card')
+
+    $('<article>', {
+      'id': 'computer-card',
+    }).appendTo('#hand-cont')
+
+    $('.face-val').clone().appendTo('#hand-cont #computer-card')
+    $('.suit').clone().appendTo('#hand-cont #computer-card')
+
+    $('<article>', {
       'id': 'computer-cont'
     }).appendTo('#game-screen')
 
