@@ -50,6 +50,14 @@ $(() => {
     }).appendTo('#game-screen')
 
     $(document).on('click', '#flip-cards', flipCards)
+
+    $('<article>', {
+      'id': 'player-cont'
+    }).appendTo('#game-screen')
+
+    $('<article>', {
+      'id': 'computer-cont'
+    }).appendTo('#game-screen')
   }
 
   function createHelpScreen(){
