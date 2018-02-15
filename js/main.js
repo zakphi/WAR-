@@ -164,11 +164,11 @@ $(() => {
     hand.push(playerDeck.shift())
     hand.push(computerDeck.shift())
 
-    $('#hand-cont #player-card .face-val').html(hand[0].faceVal)
-    $('#hand-cont #player-card .suit').html(hand[0].suit)
+    $('#player-card .face-val').html(hand[0].faceVal)
+    $('#player-card .suit').html(hand[0].suit)
 
-    $('#hand-cont #computer-card .face-val').html(hand[1].faceVal)
-    $('#hand-cont #computer-card .suit').html(hand[1].suit)
+    $('#computer-card .face-val').html(hand[1].faceVal)
+    $('#computer-card .suit').html(hand[1].suit)
 
     compare()
   }
