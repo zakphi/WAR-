@@ -200,8 +200,16 @@ $(() => {
   }
 
   function moveToWinner(winner){
-    winner === 'player' ? playerDeck = playerDeck.concat(hand) : computerDeck = computerDeck.concat(hand)
-    hand = []
+    if(winner === 'player'){
+      player.deck = player.deck.concat(player.hand, computer.hand)
+    } else {
+      computer.deck = computer.deck.concat(computer.hand, player.hand)
+    }
+    console.log(`player deck ${JSON.stringify(player.deck)}`)
+    console.log(`computer deck ${JSON.stringify(computer.deck)}`)
+
+    player.hand = []
+    computer.hand = []
 
     $('#player-score').html(`Player Cards: ${playerDeck.length}`)
     $('#computer-score').html(`Computer Cards: ${computerDeck.length}`)
