@@ -179,13 +179,11 @@ $(() => {
   }
 
   function compare(){
-    /*
-    hand[hand.length - 2] = player
-    hand[hand.length - 1] = computer
-    */
-    if(hand[hand.length - 2].numVal > hand[hand.length - 1].numVal){
+    if(player.hand[player.hand.length - 1].numVal > computer.hand[computer.hand.length - 1].numVal){
+      console.log('player won')
       moveToWinner('player')
-    } else if(hand[hand.length - 1].numVal > hand[hand.length - 2].numVal){
+    } else if(computer.hand[computer.hand.length - 1].numVal > player.hand[player.hand.length - 1].numVal){
+      console.log('computer won')
       moveToWinner('computer')
     } else {
       tie()
