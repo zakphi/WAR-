@@ -155,8 +155,11 @@ $(() => {
   }
 
   function splitDeck(){
-    playerDeck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
-    computerDeck = mainDeck
+    player.deck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
+    computer.deck = mainDeck
+
+    console.log(`player deck ${JSON.stringify(player.deck)}`)
+    console.log(`computer deck ${JSON.stringify(computer.deck)}`)
   }
 
   function flipCards(){
