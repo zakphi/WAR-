@@ -56,12 +56,12 @@ $(() => {
     }).appendTo('#game-screen')
 
     $('<h3>', {
-      'id': 'player-score',
+      'id': 'score',
       'html': `Player Cards: ${player.deck.length}`
     }).appendTo('#player-cont')
 
     $('<article>', {
-      'id': 'player-deck'
+      'id': 'deck'
     }).appendTo('#player-cont')
 
     $('<article>', {
@@ -92,12 +92,12 @@ $(() => {
     }).appendTo('#game-screen')
 
     $('<h3>', {
-      'id': 'computer-score',
+      'id': 'score',
       'html': `Computer Cards: ${computer.deck.length}`
     }).appendTo('#computer-cont')
 
     $('<article>', {
-      'id': 'computer-deck'
+      'id': 'deck'
     }).appendTo('#computer-cont')
   }
 
