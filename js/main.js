@@ -169,11 +169,11 @@ $(() => {
     console.log(`player hand ${JSON.stringify(player.hand)}`)
     console.log(`computer hand ${JSON.stringify(computer.hand)}`)
 
-    $('#player-card .face-val').html(hand[0].faceVal)
-    $('#player-card .suit').html(hand[0].suit)
+    $('#player-card .face-val').html(player.hand[0].faceVal)
+    $('#player-card .suit').html(player.hand[0].suit)
 
-    $('#computer-card .face-val').html(hand[1].faceVal)
-    $('#computer-card .suit').html(hand[1].suit)
+    $('#computer-card .face-val').html(computer.hand[0].faceVal)
+    $('#computer-card .suit').html(computer.hand[0].suit)
 
     compare()
   }
