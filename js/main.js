@@ -119,9 +119,8 @@ $(() => {
   }
 
   const mainDeck = []
-  let playerDeck = []
-  let computerDeck = []
-  let hand = []
+  let player = {deck: [], hand: []}
+  let computer = {deck: [], hand: []}
 
   function createDeck(){
     /*
