@@ -192,8 +192,8 @@ $(() => {
 
   function tie(){
     for(let i = 0; i < 4; i++){
-      hand.push(playerDeck.shift())
-      hand.push(computerDeck.shift())
+      player.hand.push(player.deck.shift())
+      computer.hand.push(computer.deck.shift())
     }
 
     compare()
