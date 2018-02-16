@@ -69,7 +69,7 @@ $(() => {
     }).appendTo('#game-screen')
 
     $('<article>', {
-      'id': 'player-card',
+      'id': 'player-hand',
     }).appendTo('#hand-cont')
 
     $('<span>', {
@@ -81,7 +81,7 @@ $(() => {
     }).appendTo('#player-card')
 
     $('<article>', {
-      'id': 'computer-card',
+      'id': 'computer-hand',
     }).appendTo('#hand-cont')
 
     $('.face-val').clone().appendTo('#hand-cont #computer-card')
