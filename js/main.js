@@ -163,8 +163,11 @@ $(() => {
   }
 
   function flipCards(){
-    hand.push(playerDeck.shift())
-    hand.push(computerDeck.shift())
+    player.hand.push(player.deck.shift())
+    computer.hand.push(computer.deck.shift())
+
+    console.log(`player hand ${JSON.stringify(player.hand)}`)
+    console.log(`computer hand ${JSON.stringify(computer.hand)}`)
 
     $('#player-card .face-val').html(hand[0].faceVal)
     $('#player-card .suit').html(hand[0].suit)
