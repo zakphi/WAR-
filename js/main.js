@@ -57,7 +57,7 @@ $(() => {
 
     $('<h3>', {
       'id': 'player-score',
-      'html': `Player Cards: ${playerDeck.length}`
+      'html': `Player Cards: ${player.deck.length}`
     }).appendTo('#player-cont')
 
     $('<article>', {
@@ -93,7 +93,7 @@ $(() => {
 
     $('<h3>', {
       'id': 'computer-score',
-      'html': `Computer Cards: ${computerDeck.length}`
+      'html': `Computer Cards: ${computer.deck.length}`
     }).appendTo('#computer-cont')
 
     $('<article>', {
@@ -211,8 +211,8 @@ $(() => {
     player.hand = []
     computer.hand = []
 
-    $('#player-score').html(`Player Cards: ${playerDeck.length}`)
-    $('#computer-score').html(`Computer Cards: ${computerDeck.length}`)
+    $('#player-score').html(`Player Cards: ${player.deck.length}`)
+    $('#computer-score').html(`Computer Cards: ${computer.deck.length}`)
   }
 
   createGame()
