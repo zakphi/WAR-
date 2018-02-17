@@ -52,25 +52,25 @@ $(() => {
     $(document).on('click', '#flip-cards', flipCards)
 
     $('<article>', {
-      'id': 'player-cont'
+      'id': 'player'
     }).appendTo('#game-screen')
 
     $('<h3>', {
       'id': 'score',
       'html': `Player Cards: ${player.deck.length}`
-    }).appendTo('#player-cont')
+    }).appendTo('#player')
 
     $('<article>', {
       'id': 'deck'
-    }).appendTo('#player-cont')
+    }).appendTo('#player')
 
     $('<article>', {
-      'id': 'hand-cont'
+      'id': 'hand'
     }).appendTo('#game-screen')
 
     $('<article>', {
       'id': 'player-hand',
-    }).appendTo('#hand-cont')
+    }).appendTo('#hand')
 
     $('<span>', {
       'class': 'face-val'
@@ -82,23 +82,23 @@ $(() => {
 
     $('<article>', {
       'id': 'computer-hand',
-    }).appendTo('#hand-cont')
+    }).appendTo('#hand')
 
     $('.face-val').clone().appendTo('#hand-cont #computer-card')
     $('.suit').clone().appendTo('#hand-cont #computer-card')
 
     $('<article>', {
-      'id': 'computer-cont'
+      'id': 'computer'
     }).appendTo('#game-screen')
 
     $('<h3>', {
       'id': 'score',
       'html': `Computer Cards: ${computer.deck.length}`
-    }).appendTo('#computer-cont')
+    }).appendTo('#computer')
 
     $('<article>', {
       'id': 'deck'
-    }).appendTo('#computer-cont')
+    }).appendTo('#computer')
   }
 
   function createHelpScreen(){
