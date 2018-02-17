@@ -56,48 +56,33 @@ $(() => {
     }).appendTo('#game-screen')
 
     $('<h3>', {
-      'id': 'score',
+      'class': 'score',
       'html': `Player Cards: ${player.deck.length}`
     }).appendTo('#player')
 
     $('<article>', {
-      'id': 'deck'
+      'class': 'deck'
     }).appendTo('#player')
 
     $('<article>', {
-      'id': 'hand'
-    }).appendTo('#game-screen')
-
-    $('<article>', {
-      'id': 'player-hand',
-    }).appendTo('#hand')
-
-    $('<span>', {
-      'class': 'face-val'
-    }).appendTo('#player-card')
-
-    $('<span>', {
-      'class': 'suit'
-    }).appendTo('#player-card')
-
-    $('<article>', {
-      'id': 'computer-hand',
-    }).appendTo('#hand')
-
-    $('.face-val').clone().appendTo('#hand-cont #computer-card')
-    $('.suit').clone().appendTo('#hand-cont #computer-card')
+      'class': 'hand'
+    }).appendTo('#player')
 
     $('<article>', {
       'id': 'computer'
     }).appendTo('#game-screen')
 
     $('<h3>', {
-      'id': 'score',
+      'class': 'score',
       'html': `Computer Cards: ${computer.deck.length}`
     }).appendTo('#computer')
 
     $('<article>', {
-      'id': 'deck'
+      'class': 'deck'
+    }).appendTo('#computer')
+
+    $('<article>', {
+      'class': 'hand',
     }).appendTo('#computer')
   }
 
