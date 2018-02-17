@@ -222,8 +222,8 @@ $(() => {
     player.hand = []
     computer.hand = []
 
-    $('#player-score').html(`Player Cards: ${player.deck.length}`)
-    $('#computer-score').html(`Computer Cards: ${computer.deck.length}`)
+    $('#player .score').html(`Player Cards: ${player.deck.length}`)
+    $('#computer .score').html(`Computer Cards: ${computer.deck.length}`)
   }
 
   createGame()
