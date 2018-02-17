@@ -106,6 +106,7 @@ $(() => {
   const mainDeck = []
   let player = {deck: [], hand: []}
   let computer = {deck: [], hand: []}
+  let deckLength = 0
 
   function createDeck(){
     /*
@@ -154,8 +155,24 @@ $(() => {
     $('#player-card .face-val').html(player.hand[0].faceVal)
     $('#player-card .suit').html(player.hand[0].suit)
 
-    $('#computer-card .face-val').html(computer.hand[0].faceVal)
-    $('#computer-card .suit').html(computer.hand[0].suit)
+
+    $('<article>', {
+      'class': 'card'
+    }).appendTo('#player .hand, #computer .hand')
+
+    $('<span>', {
+      'class': 'face-val'
+    }).appendTo('#player .hand .card, #computer .hand .card')
+
+    $('<span>', {
+      'class': 'suit'
+    }).appendTo('#player .hand .card, #computer .hand .card')
+
+    $('#player .hand .card .face-val').html(player.hand[0].faceVal)
+    $('#player .hand .card .suit').html(player.hand[0].suit)
+
+    $('#computer .hand .card .face-val').html(computer.hand[0].faceVal)
+    $('#computer .hand .card .suit').html(computer.hand[0].suit)
 
     compare()
   }
@@ -176,6 +193,20 @@ $(() => {
     for(let i = 0; i < 4; i++){
       player.hand.push(player.deck.shift())
       computer.hand.push(computer.deck.shift())
+    }
+
+
+    deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+    for(let i = 1; i < deckLength; i++){
+      $('<article>', {
+        'class': `card${i}`
+      }).appendTo('#player .hand, #computer .hand')
+
+      $('<span>', {'class': 'face-val', 'html': player.hand[i].faceVal}).appendTo(`#player .hand .card${i}`)
+      $('<span>', {'class': 'suit', 'html': player.hand[i].suit}).appendTo(`#player .hand .card${i}`)
+
+      $('<span>', {'class': 'face-val', 'html': computer.hand[i].faceVal}).appendTo(`#computer .hand .card${i}`)
+      $('<span>', {'class': 'suit', 'html': computer.hand[i].suit}).appendTo(`#computer .hand .card${i}`)
     }
 
     compare()
