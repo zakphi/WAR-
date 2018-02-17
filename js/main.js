@@ -149,13 +149,6 @@ $(() => {
     player.hand.push(player.deck.shift())
     computer.hand.push(computer.deck.shift())
 
-    console.log(`player hand ${JSON.stringify(player.hand)}`)
-    console.log(`computer hand ${JSON.stringify(computer.hand)}`)
-
-    $('#player-card .face-val').html(player.hand[0].faceVal)
-    $('#player-card .suit').html(player.hand[0].suit)
-
-
     $('<article>', {
       'class': 'card'
     }).appendTo('#player .hand, #computer .hand')
@@ -179,10 +172,8 @@ $(() => {
 
   function compare(){
     if(player.hand[player.hand.length - 1].numVal > computer.hand[computer.hand.length - 1].numVal){
-      console.log('player won')
       moveToWinner('player')
     } else if(computer.hand[computer.hand.length - 1].numVal > player.hand[player.hand.length - 1].numVal){
-      console.log('computer won')
       moveToWinner('computer')
     } else {
       tie()
@@ -194,7 +185,6 @@ $(() => {
       player.hand.push(player.deck.shift())
       computer.hand.push(computer.deck.shift())
     }
-
 
     deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
     for(let i = 1; i < deckLength; i++){
