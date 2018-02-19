@@ -149,6 +149,8 @@ $(() => {
     player.hand.push(player.deck.shift())
     computer.hand.push(computer.deck.shift())
 
+    $('.hand').children().length ? $('[class^=card]').remove() : null
+
     $('<article>', {
       'class': 'card'
     }).appendTo('#player .hand, #computer .hand')
