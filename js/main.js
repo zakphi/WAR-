@@ -2,7 +2,7 @@ $(() => {
   console.log('connected')
 
   function createGame(){
-    $('<section>', {
+    $('<div>', {
       'id': 'container'
     }).appendTo('body')
 
@@ -14,22 +14,22 @@ $(() => {
 
     createStartScreen()
 
-    $(document).on('click', '#start', createGameScreen)
-    $(document).one('click', '#help', createHelpScreen)
+    $(document).on('click', '#start-btn', createGameScreen)
+    $(document).one('click', '#help-btn', createHelpScreen)
   }
 
   function createStartScreen(){
-    $('<article>', {
+    $('<div>', {
       'id': 'start-screen'
     }).appendTo('#container')
 
     $('<button>', {
-      'id': 'start',
+      'id': 'start-btn',
       'html': 'go to war'
     }).appendTo('#start-screen')
 
     $('<button>', {
-      'id': 'help',
+      'id': 'help-btn',
       'html': 'receive instructions'
     }).appendTo('#start-screen')
   }
@@ -38,20 +38,20 @@ $(() => {
     $('#start-screen').remove()
     $('#help-screen').remove()
 
-    $('<article>', {
+    $('<div>', {
       'id': 'game-screen'
     }).appendTo('#container')
 
     createDeck()
 
     $('<button>', {
-      'id': 'flip-cards',
+      'id': 'flip-cards-btn',
       'html': 'flip'
     }).appendTo('#game-screen')
 
-    $(document).on('click', '#flip-cards', flipCards)
+    $(document).on('click', '#flip-cards-btn', flipCards)
 
-    $('<article>', {
+    $('<div>', {
       'id': 'player'
     }).appendTo('#game-screen')
 
@@ -60,15 +60,15 @@ $(() => {
       'html': `Player Cards: ${player.deck.length}`
     }).appendTo('#player')
 
-    $('<article>', {
+    $('<div>', {
       'class': 'deck'
     }).appendTo('#player')
 
-    $('<article>', {
+    $('<div>', {
       'class': 'hand'
     }).appendTo('#player')
 
-    $('<article>', {
+    $('<div>', {
       'id': 'computer'
     }).appendTo('#game-screen')
 
@@ -77,22 +77,21 @@ $(() => {
       'html': `Computer Cards: ${computer.deck.length}`
     }).appendTo('#computer')
 
-    $('<article>', {
+    $('<div>', {
       'class': 'deck'
     }).appendTo('#computer')
 
-    $('<article>', {
+    $('<div>', {
       'class': 'hand',
     }).appendTo('#computer')
   }
 
   function createHelpScreen(){
-    $('<article>', {
+    $('<div>', {
       'id': 'help-screen'
     }).appendTo('#container')
 
     $('<p>', {
-      'id': 'instructions',
       'html': 'instructions go here'
     }).appendTo('#help-screen')
   }
@@ -151,23 +150,23 @@ $(() => {
 
     $('.hand').children().length ? $('[class^=card]').remove() : null
 
-    $('<article>', {
-      'class': 'card'
+    $('<div>', {
+      'class': 'card1'
     }).appendTo('#player .hand, #computer .hand')
 
     $('<span>', {
       'class': 'face-val'
-    }).appendTo('#player .hand .card, #computer .hand .card')
+    }).appendTo('#player .hand .card1, #computer .hand .card1')
 
     $('<span>', {
       'class': 'suit'
-    }).appendTo('#player .hand .card, #computer .hand .card')
+    }).appendTo('#player .hand .card1, #computer .hand .card1')
 
-    $('#player .hand .card .face-val').html(player.hand[0].faceVal)
-    $('#player .hand .card .suit').html(player.hand[0].suit)
+    $('#player .hand .card1 .face-val').html(player.hand[0].faceVal)
+    $('#player .hand .card1 .suit').html(player.hand[0].suit)
 
-    $('#computer .hand .card .face-val').html(computer.hand[0].faceVal)
-    $('#computer .hand .card .suit').html(computer.hand[0].suit)
+    $('#computer .hand .card1 .face-val').html(computer.hand[0].faceVal)
+    $('#computer .hand .card1 .suit').html(computer.hand[0].suit)
 
     compare()
   }
@@ -190,15 +189,15 @@ $(() => {
 
     deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
     for(let i = 1; i < deckLength; i++){
-      $('<article>', {
-        'class': `card${i}`
+      $('<div>', {
+        'class': `card${i + 1}`
       }).appendTo('#player .hand, #computer .hand')
 
-      $('<span>', {'class': 'face-val', 'html': player.hand[i].faceVal}).appendTo(`#player .hand .card${i}`)
-      $('<span>', {'class': 'suit', 'html': player.hand[i].suit}).appendTo(`#player .hand .card${i}`)
+      $('<span>', {'class': 'face-val', 'html': player.hand[i].faceVal}).appendTo(`#player .hand .card${i + 1}`)
+      $('<span>', {'class': 'suit', 'html': player.hand[i].suit}).appendTo(`#player .hand .card${i + 1}`)
 
-      $('<span>', {'class': 'face-val', 'html': computer.hand[i].faceVal}).appendTo(`#computer .hand .card${i}`)
-      $('<span>', {'class': 'suit', 'html': computer.hand[i].suit}).appendTo(`#computer .hand .card${i}`)
+      $('<span>', {'class': 'face-val', 'html': computer.hand[i].faceVal}).appendTo(`#computer .hand .card${i + 1}`)
+      $('<span>', {'class': 'suit', 'html': computer.hand[i].suit}).appendTo(`#computer .hand .card${i + 1}`)
     }
 
     compare()
