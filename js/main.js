@@ -164,9 +164,11 @@ $(() => {
 
     $('#player .hand .card1 .face-val').html(player.hand[0].faceVal)
     $('#player .hand .card1 .suit').html(player.hand[0].suit)
+    $('#player .hand .card1').addClass(player.hand[0].suit)
 
     $('#computer .hand .card1 .face-val').html(computer.hand[0].faceVal)
     $('#computer .hand .card1 .suit').html(computer.hand[0].suit)
+    $('#computer .hand .card1').addClass(computer.hand[0].suit)
 
     compare()
   }
@@ -195,9 +197,11 @@ $(() => {
 
       $('<span>', {'class': 'face-val', 'html': player.hand[i].faceVal}).appendTo(`#player .hand .card${i + 1}`)
       $('<span>', {'class': 'suit', 'html': player.hand[i].suit}).appendTo(`#player .hand .card${i + 1}`)
+      $(`#player .hand .card${i + 1}`).addClass(player.hand[i].suit)
 
       $('<span>', {'class': 'face-val', 'html': computer.hand[i].faceVal}).appendTo(`#computer .hand .card${i + 1}`)
       $('<span>', {'class': 'suit', 'html': computer.hand[i].suit}).appendTo(`#computer .hand .card${i + 1}`)
+      $(`#computer .hand .card${i + 1}`).addClass(computer.hand[i].suit)
     }
 
     compare()

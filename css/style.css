@@ -1,4 +1,4 @@
-#player .deck, #computer .deck{
+.deck, [class^=card]{
   width: 200px;
   height: 350px;
   border-radius: 5%;
@@ -10,4 +10,26 @@
 
 #player .deck{
   background-color: red;
+}
+
+/*
+  u2660 = spade
+  u2665 = heart
+  u2666 = diamond
+  u2663 = club
+*/
+
+.\2660, .\2663{
+  border: 1px solid black;
+}
+.\2665, .\2666{
+  border: 1px solid red;
+  color: red
+}
+
+[class^=card]{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
