@@ -144,31 +144,33 @@ $(() => {
     computer.deck = mainDeck
   }
 
+  function createCard(deckLength){
+    let i = $('.hand').children().length ? 1 : 0
+    while(i < deckLength){
+      $('<div>', {
+        'class': `card${i + 1}`
+      }).appendTo('#player .hand, #computer .hand')
+
+      $('<span>', {'class': 'face-val', 'html': player.hand[i].faceVal}).appendTo(`#player .hand .card${i + 1}`)
+      $('<span>', {'class': 'suit', 'html': player.hand[i].suit}).appendTo(`#player .hand .card${i + 1}`)
+      $(`#player .hand .card${i + 1}`).addClass(player.hand[i].suit)
+
+      $('<span>', {'class': 'face-val', 'html': computer.hand[i].faceVal}).appendTo(`#computer .hand .card${i + 1}`)
+      $('<span>', {'class': 'suit', 'html': computer.hand[i].suit}).appendTo(`#computer .hand .card${i + 1}`)
+      $(`#computer .hand .card${i + 1}`).addClass(computer.hand[i].suit)
+
+      i++
+    }
+  }
+
   function flipCards(){
     player.hand.push(player.deck.shift())
     computer.hand.push(computer.deck.shift())
 
     $('.hand').children().length ? $('[class^=card]').remove() : null
 
-    $('<div>', {
-      'class': 'card1'
-    }).appendTo('#player .hand, #computer .hand')
-
-    $('<span>', {
-      'class': 'face-val'
-    }).appendTo('#player .hand .card1, #computer .hand .card1')
-
-    $('<span>', {
-      'class': 'suit'
-    }).appendTo('#player .hand .card1, #computer .hand .card1')
-
-    $('#player .hand .card1 .face-val').html(player.hand[0].faceVal)
-    $('#player .hand .card1 .suit').html(player.hand[0].suit)
-    $('#player .hand .card1').addClass(player.hand[0].suit)
-
-    $('#computer .hand .card1 .face-val').html(computer.hand[0].faceVal)
-    $('#computer .hand .card1 .suit').html(computer.hand[0].suit)
-    $('#computer .hand .card1').addClass(computer.hand[0].suit)
+    deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+    createCard(deckLength)
 
     compare()
   }
@@ -192,19 +194,7 @@ $(() => {
     }
 
     deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    for(let i = 1; i < deckLength; i++){
-      $('<div>', {
-        'class': `card${i + 1}`
-      }).appendTo('#player .hand, #computer .hand')
-
-      $('<span>', {'class': 'face-val', 'html': player.hand[i].faceVal}).appendTo(`#player .hand .card${i + 1}`)
-      $('<span>', {'class': 'suit', 'html': player.hand[i].suit}).appendTo(`#player .hand .card${i + 1}`)
-      $(`#player .hand .card${i + 1}`).addClass(player.hand[i].suit)
-
-      $('<span>', {'class': 'face-val', 'html': computer.hand[i].faceVal}).appendTo(`#computer .hand .card${i + 1}`)
-      $('<span>', {'class': 'suit', 'html': computer.hand[i].suit}).appendTo(`#computer .hand .card${i + 1}`)
-      $(`#computer .hand .card${i + 1}`).addClass(computer.hand[i].suit)
-    }
+    createCard(deckLength)
 
     compare()
   }
