@@ -144,8 +144,7 @@ $(() => {
     computer.deck = mainDeck
   }
 
-  function renderCards(handLength){
-    let i = $('.hand').children().length ? 1 : 0
+  function renderCards(handLength, startIndex = 0){
     while(startIndex < handLength){
       $('<div>', {
         'class': `card${startIndex + 1}`
@@ -188,13 +187,16 @@ $(() => {
   }
 
   function tie(){
+    let startIndex = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+
     for(let i = 0; i < 4; i++){
       player.hand.push(player.deck.shift())
       computer.hand.push(computer.deck.shift())
     }
 
     handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    renderCards(handLength)
+
+    renderCards(handLength, startIndex)
 
     compare()
   }
