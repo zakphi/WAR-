@@ -144,7 +144,7 @@ $(() => {
     computer.deck = mainDeck
   }
 
-  function createCard(deckLength){
+  function renderCards(deckLength){
     let i = $('.hand').children().length ? 1 : 0
     while(i < deckLength){
       $('<div>', {
@@ -170,7 +170,7 @@ $(() => {
     $('.hand').children().length ? $('[class^=card]').remove() : null
 
     deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    createCard(deckLength)
+    renderCards(deckLength)
 
     compare()
   }
@@ -194,7 +194,7 @@ $(() => {
     }
 
     deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    createCard(deckLength)
+    renderCards(deckLength)
 
     compare()
   }
