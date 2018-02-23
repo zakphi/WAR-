@@ -105,7 +105,7 @@ $(() => {
   const mainDeck = []
   let player = {deck: [], hand: [], winner: false}
   let computer = {deck: [], hand: [], winner: false}
-  let deckLength = 0
+  let handLength = 0
 
   function createDeck(){
     /*
@@ -144,9 +144,9 @@ $(() => {
     computer.deck = mainDeck
   }
 
-  function renderCards(deckLength){
+  function renderCards(handLength){
     let i = $('.hand').children().length ? 1 : 0
-    while(i < deckLength){
+    while(i < handLength){
       $('<div>', {
         'class': `card${i + 1}`
       }).appendTo('#player .hand, #computer .hand')
@@ -169,8 +169,8 @@ $(() => {
 
     $('.hand').children().length ? $('[class^=card]').remove() : null
 
-    deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    renderCards(deckLength)
+    handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+    renderCards(handLength)
 
     compare()
   }
@@ -193,8 +193,8 @@ $(() => {
       computer.hand.push(computer.deck.shift())
     }
 
-    deckLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    renderCards(deckLength)
+    handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+    renderCards(handLength)
 
     compare()
   }
