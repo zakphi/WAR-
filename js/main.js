@@ -55,13 +55,9 @@ $(() => {
       'id': 'player'
     }).appendTo('#game-screen')
 
-    $('<h3>', {
-      'class': 'score',
-      'html': `Player Cards: ${player.deck.length}`
-    }).appendTo('#player')
-
     $('<div>', {
-      'class': 'deck'
+      'class': 'deck',
+      'html': `Player Cards: ${player.deck.length}`
     }).appendTo('#player')
 
     $('<div>', {
@@ -72,13 +68,9 @@ $(() => {
       'id': 'computer'
     }).appendTo('#game-screen')
 
-    $('<h3>', {
-      'class': 'score',
-      'html': `Computer Cards: ${computer.deck.length}`
-    }).appendTo('#computer')
-
     $('<div>', {
-      'class': 'deck'
+      'class': 'deck',
+      'html': `Computer Cards: ${computer.deck.length}`
     }).appendTo('#computer')
 
     $('<div>', {
@@ -211,8 +203,8 @@ $(() => {
     player.winner = false
     computer.winner = false
 
-    $('#player .score').html(`Player Cards: ${player.deck.length}`)
-    $('#computer .score').html(`Computer Cards: ${computer.deck.length}`)
+    $('#player .deck').html(`Player Cards: ${player.deck.length}`)
+    $('#computer .deck').html(`Computer Cards: ${computer.deck.length}`)
   }
 
   createGame()
