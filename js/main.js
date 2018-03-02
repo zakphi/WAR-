@@ -181,11 +181,11 @@ $(() => {
       computer.winner = true
       moveToWinner()
     } else {
-      tie()
+      war()
     }
   }
 
-  function tie(){
+  function war(){
     let startIndex = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
 
     for(let i = 0; i < 4; i++){
