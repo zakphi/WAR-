@@ -2,15 +2,11 @@ $(() => {
   console.log('connected')
 
   function createGame(){
-    $('<div>', {
-      'id': 'container'
-    }).appendTo('body')
+    $('<div>').attr('id', 'container').appendTo('body')
 
     $('<header>').appendTo('#container')
 
-    $('<h1>', {
-      'text': 'WAR!'
-    }).appendTo('header')
+    $('<h1>').text('WAR!').appendTo('header')
 
     createStartScreen()
 
@@ -19,18 +15,16 @@ $(() => {
   }
 
   function createStartScreen(){
-    $('<div>', {
-      'id': 'start-screen'
-    }).appendTo('#container')
+    $('<div>').attr('id', 'start-screen').appendTo('#container')
 
     $('<button>', {
       'id': 'start-btn',
-      'html': 'go to war'
+      'text': 'go to war'
     }).appendTo('#start-screen')
 
     $('<button>', {
       'id': 'help-btn',
-      'html': 'receive instructions'
+      'text': 'receive instructions'
     }).appendTo('#start-screen')
   }
 
@@ -38,54 +32,40 @@ $(() => {
     $('#start-screen').remove()
     $('#help-screen').remove()
 
-    $('<div>', {
-      'id': 'game-screen'
-    }).appendTo('#container')
+    $('<div>').attr('id', 'game-screen').appendTo('#container')
 
     createDeck()
 
     $('<button>', {
       'id': 'flip-cards-btn',
-      'html': 'flip'
+      'text': 'flip'
     }).appendTo('#game-screen')
 
     $(document).on('click', '#flip-cards-btn', flipCards)
 
-    $('<div>', {
-      'id': 'player'
-    }).appendTo('#game-screen')
+    $('<div>').attr('id', 'player').appendTo('#game-screen')
 
     $('<div>', {
       'class': 'deck',
-      'html': `Player Cards: ${player.deck.length}`
+      'text': `Player Cards: ${player.deck.length}`
     }).appendTo('#player')
 
-    $('<div>', {
-      'class': 'hand'
-    }).appendTo('#player')
+    $('<div>').attr('class', 'hand').appendTo('#player')
 
-    $('<div>', {
-      'id': 'computer'
-    }).appendTo('#game-screen')
+    $('<div>').attr('id', 'computer').appendTo('#game-screen')
 
     $('<div>', {
       'class': 'deck',
-      'html': `Computer Cards: ${computer.deck.length}`
+      'text': `Computer Cards: ${computer.deck.length}`
     }).appendTo('#computer')
 
-    $('<div>', {
-      'class': 'hand',
-    }).appendTo('#computer')
+    $('<div>').attr('class', 'hand').appendTo('#computer')
   }
 
   function createHelpScreen(){
-    $('<div>', {
-      'id': 'help-screen'
-    }).appendTo('#container')
+    $('<div>').attr('id', 'help-screen').appendTo('#container')
 
-    $('<p>', {
-      'html': 'instructions go here'
-    }).appendTo('#help-screen')
+    $('<p>').text('instructions go here').appendTo('#help-screen')
   }
 
   let Card = function(suit, faceVal, numVal){
@@ -138,19 +118,29 @@ $(() => {
 
   function renderCards(handLength, startIndex = 0){
     while(startIndex < handLength){
-      $('<div>', {
-        'class': `card${startIndex + 1}`
-      }).appendTo('#player .hand, #computer .hand')
+      $('<div>').attr('class', `card${startIndex + 1}`).appendTo('#player .hand, #computer .hand')
 
       if(player.hand[startIndex]){
-        $('<span>', {'class': 'face-val', 'html': player.hand[startIndex].faceVal}).appendTo(`#player .hand .card${startIndex + 1}`)
-        $('<span>', {'class': 'suit', 'html': player.hand[startIndex].suit}).appendTo(`#player .hand .card${startIndex + 1}`)
+        $('<span>', {
+          'class': 'face-val',
+          'text': player.hand[startIndex].faceVal
+        }).appendTo(`#player .hand .card${startIndex + 1}`)
+        $('<span>', {
+          'class': 'suit',
+          'text': player.hand[startIndex].suit
+        }).appendTo(`#player .hand .card${startIndex + 1}`)
         $(`#player .hand .card${startIndex + 1}`).addClass(player.hand[startIndex].suit)
       }
 
       if(computer.hand[startIndex]){
-        $('<span>', {'class': 'face-val', 'html': computer.hand[startIndex].faceVal}).appendTo(`#computer .hand .card${startIndex + 1}`)
-        $('<span>', {'class': 'suit', 'html': computer.hand[startIndex].suit}).appendTo(`#computer .hand .card${startIndex + 1}`)
+        $('<span>', {
+          'class': 'face-val',
+          'text': computer.hand[startIndex].faceVal
+        }).appendTo(`#computer .hand .card${startIndex + 1}`)
+        $('<span>', {
+          'class': 'suit',
+          'text': computer.hand[startIndex].suit
+        }).appendTo(`#computer .hand .card${startIndex + 1}`)
         $(`#computer .hand .card${startIndex + 1}`).addClass(computer.hand[startIndex].suit)
       }
 
@@ -210,8 +200,8 @@ $(() => {
     player.winner = false
     computer.winner = false
 
-    $('#player .deck').html(`Player Cards: ${player.deck.length}`)
-    $('#computer .deck').html(`Computer Cards: ${computer.deck.length}`)
+    $('#player .deck').text(`Player Cards: ${player.deck.length}`)
+    $('#computer .deck').text(`Computer Cards: ${computer.deck.length}`)
   }
 
   createGame()
