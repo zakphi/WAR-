@@ -189,8 +189,8 @@ $(() => {
     let startIndex = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
 
     for(let i = 0; i < 4; i++){
-      player.hand.push(player.deck.shift())
-      computer.hand.push(computer.deck.shift())
+      player.deck.length && player.hand.push(player.deck.shift())
+      computer.deck.length && computer.hand.push(computer.deck.shift())
     }
 
     handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
