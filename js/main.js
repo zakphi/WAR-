@@ -75,8 +75,19 @@ $(() => {
   }
 
   const mainDeck = []
-  let player = {deck: [], hand: [], wonRound: false}
-  let computer = {deck: [], hand: [], wonRound: false}
+
+  let player = {
+    deck: [],
+    hand: [],
+    wonRound: false
+  }
+
+  let computer = {
+    deck: [],
+    hand: [],
+    wonRound: false
+  }
+
   let handLength = 0
 
   function createDeck(){
