@@ -142,13 +142,17 @@ $(() => {
         'class': `card${startIndex + 1}`
       }).appendTo('#player .hand, #computer .hand')
 
-      $('<span>', {'class': 'face-val', 'html': player.hand[startIndex].faceVal}).appendTo(`#player .hand .card${startIndex + 1}`)
-      $('<span>', {'class': 'suit', 'html': player.hand[startIndex].suit}).appendTo(`#player .hand .card${startIndex + 1}`)
-      $(`#player .hand .card${startIndex + 1}`).addClass(player.hand[startIndex].suit)
+      if(player.hand[startIndex]){
+        $('<span>', {'class': 'face-val', 'html': player.hand[startIndex].faceVal}).appendTo(`#player .hand .card${startIndex + 1}`)
+        $('<span>', {'class': 'suit', 'html': player.hand[startIndex].suit}).appendTo(`#player .hand .card${startIndex + 1}`)
+        $(`#player .hand .card${startIndex + 1}`).addClass(player.hand[startIndex].suit)
+      }
 
-      $('<span>', {'class': 'face-val', 'html': computer.hand[startIndex].faceVal}).appendTo(`#computer .hand .card${startIndex + 1}`)
-      $('<span>', {'class': 'suit', 'html': computer.hand[startIndex].suit}).appendTo(`#computer .hand .card${startIndex + 1}`)
-      $(`#computer .hand .card${startIndex + 1}`).addClass(computer.hand[startIndex].suit)
+      if(computer.hand[startIndex]){
+        $('<span>', {'class': 'face-val', 'html': computer.hand[startIndex].faceVal}).appendTo(`#computer .hand .card${startIndex + 1}`)
+        $('<span>', {'class': 'suit', 'html': computer.hand[startIndex].suit}).appendTo(`#computer .hand .card${startIndex + 1}`)
+        $(`#computer .hand .card${startIndex + 1}`).addClass(computer.hand[startIndex].suit)
+      }
 
       startIndex++
     }
