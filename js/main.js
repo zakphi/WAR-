@@ -167,10 +167,13 @@ $(() => {
   }
 
   function compare(){
-    if(player.hand[player.hand.length - 1].numVal > computer.hand[computer.hand.length - 1].numVal){
+    let playerCardToCompare = player.hand[player.hand.length - 1].numVal
+    let computerCardToCompare = computer.hand[computer.hand.length - 1].numVal
+
+    if(playerCardToCompare > computerCardToCompare){
       player.winner = true
       moveToWinner()
-    } else if(computer.hand[computer.hand.length - 1].numVal > player.hand[player.hand.length - 1].numVal){
+    } else if(computerCardToCompare > playerCardToCompare){
       computer.winner = true
       moveToWinner()
     } else {
