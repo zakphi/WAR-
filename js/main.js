@@ -75,8 +75,8 @@ $(() => {
   }
 
   const mainDeck = []
-  let player = {deck: [], hand: [], winner: false}
-  let computer = {deck: [], hand: [], winner: false}
+  let player = {deck: [], hand: [], wonRound: false}
+  let computer = {deck: [], hand: [], wonRound: false}
   let handLength = 0
 
   function createDeck(){
@@ -165,10 +165,10 @@ $(() => {
     let computerCardToCompare = computer.hand[computer.hand.length - 1].numVal
 
     if(playerCardToCompare > computerCardToCompare){
-      player.winner = true
+      player.wonRound = true
       moveToWinner()
     } else if(computerCardToCompare > playerCardToCompare){
-      computer.winner = true
+      computer.wonRound = true
       moveToWinner()
     } else {
       war()
@@ -191,14 +191,14 @@ $(() => {
   }
 
   function moveToWinner(winner){
-    player.winner ? player.deck = player.deck.concat(player.hand, computer.hand) : null
-    computer.winner ? computer.deck = computer.deck.concat(computer.hand, player.hand) : null
+    player.wonRound ? player.deck = player.deck.concat(player.hand, computer.hand) : null
+    computer.wonRound ? computer.deck = computer.deck.concat(computer.hand, player.hand) : null
 
     player.hand = []
     computer.hand = []
 
-    player.winner = false
-    computer.winner = false
+    player.wonRound = false
+    computer.wonRound = false
 
     $('#player .deck').text(`Player Cards: ${player.deck.length}`)
     $('#computer .deck').text(`Computer Cards: ${computer.deck.length}`)
