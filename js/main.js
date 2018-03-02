@@ -177,10 +177,10 @@ $(() => {
 
     if(playerCardToCompare > computerCardToCompare){
       player.wonRound = true
-      moveToWinner()
+      moveToWinnerDeck()
     } else if(computerCardToCompare > playerCardToCompare){
       computer.wonRound = true
-      moveToWinner()
+      moveToWinnerDeck()
     } else {
       war()
     }
@@ -201,7 +201,7 @@ $(() => {
     compareCards()
   }
 
-  function moveToWinner(winner){
+  function moveToWinnerDeck(){
     player.wonRound ? player.deck = player.deck.concat(player.hand, computer.hand) : null
     computer.wonRound ? computer.deck = computer.deck.concat(computer.hand, player.hand) : null
 
