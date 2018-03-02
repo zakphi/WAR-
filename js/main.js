@@ -162,7 +162,7 @@ $(() => {
     player.hand.push(player.deck.shift())
     computer.hand.push(computer.deck.shift())
 
-    $('.hand').children().length ? $('[class^=card]').remove() : null
+    $('.hand').children().length && $('[class^=card]').remove()
 
     handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
     renderCards(handLength)
