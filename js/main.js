@@ -79,7 +79,8 @@ $(() => {
   let player = {
     deck: [],
     hand: [],
-    wonRound: false
+    wonRound: false,
+    wonGame: false,
   }
 
   let computer = {
