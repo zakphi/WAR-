@@ -188,6 +188,8 @@ $(() => {
     } else {
       war()
     }
+
+    checkForWinner()
   }
 
   function war(){
@@ -217,6 +219,22 @@ $(() => {
 
     $('#player .deck').text(`Player Cards: ${player.deck.length}`)
     $('#computer .deck').text(`Computer Cards: ${computer.deck.length}`)
+  }
+
+  function checkForWinner(){
+    console.log('check for winner')
+
+    if(player.deck.length == 52){
+      player.wonGame = true
+      console.log('player won')
+    } else if(computer.deck.length == 52){
+      computer.wonGame = true
+      console.log('computer won')
+    }
+
+    if(player.wonGame || computer.wonGame){
+      // function call or content
+    }
   }
 
   createGame()
