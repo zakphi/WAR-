@@ -80,10 +80,15 @@ $(() => {
     deck: [],
     hand: [],
     wonRound: false,
-    wonGame: false,
+    wonGame: false
   }
 
-  let computer = JSON.parse(JSON.stringify(player))
+  let computer = {
+    deck: [],
+    hand: [],
+    wonRound: false,
+    wonGame: false
+  }
 
   let handLength = 0
 
