@@ -170,10 +170,10 @@ $(() => {
     handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
     renderCards(handLength)
 
-    compareCards()
+    compareHands()
   }
 
-  function compareCards(){
+  function compareHands(){
     let playerCardToCompare = player.hand[player.hand.length - 1].numVal
     let computerCardToCompare = computer.hand[computer.hand.length - 1].numVal
 
@@ -200,7 +200,7 @@ $(() => {
 
     renderCards(handLength, startIndex)
 
-    compareCards()
+    compareHands()
   }
 
   function moveToWinnerDeck(){
