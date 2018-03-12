@@ -162,15 +162,17 @@ $(() => {
   }
 
   function flipCards(){
-    player.hand.push(player.deck.shift())
-    computer.hand.push(computer.deck.shift())
+   if(player.deck.length && computer.deck.length){
+     player.hand.push(player.deck.shift())
+     computer.hand.push(computer.deck.shift())
 
-    $('.hand').children().length && $('[class^=card]').remove()
+     $('.hand').children().length && $('[class^=card]').remove()
 
-    handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
-    renderCards(handLength)
+     handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+     renderCards(handLength)
 
-    compareHands()
+     compareHands()
+   }
   }
 
   function compareHands(){
