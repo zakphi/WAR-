@@ -228,15 +228,19 @@ $(() => {
 
     if(player.deck.length == 52){
       player.wonGame = true
-      console.log('player won')
+      createEndGameScreen()
     } else if(computer.deck.length == 52){
       computer.wonGame = true
-      console.log('computer won')
+      createEndGameScreen()
     }
+  }
 
-    if(player.wonGame || computer.wonGame){
-      // function call or content
-    }
+  function createEndGameScreen(){
+    $('#flip-cards-btn').remove()
+
+    winner = player.wonGame ? 'player' : 'computer'
+
+    $('h2').length == 0 && $('<h2>').text(`${winner} won`).insertAfter('header')
   }
 
   createGame()
