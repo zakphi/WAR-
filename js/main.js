@@ -74,7 +74,7 @@ $(() => {
     this.numVal = numVal
   }
 
-  const mainDeck = []
+  let mainDeck = []
 
   let player = {
     deck: [],
