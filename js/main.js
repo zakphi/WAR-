@@ -112,14 +112,16 @@ $(() => {
   }
 
   function shuffleDeck(){
-    for(let i = 0; i < 500; i++){
-      let loc1 = Math.floor(Math.random() * mainDeck.length)
-      let loc2 = Math.floor(Math.random() * mainDeck.length)
-      let tmpLoc = mainDeck[loc1]
+    let deckSize = mainDeck.length
+    let shuffledDeck = []
+    let randIndex
 
-      mainDeck[loc1] = mainDeck[loc2]
-      mainDeck[loc2] = tmpLoc
+    for(let i = 0; i < deckSize; i++){
+      randIndex = Math.floor(Math.random() * mainDeck.length)
+      shuffledDeck.push(mainDeck.splice(randIndex, 1)[0])
     }
+
+    mainDeck = shuffledDeck
 
     splitDeck()
   }
