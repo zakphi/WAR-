@@ -85,10 +85,10 @@ $(() => {
     }
 
     reset(){
-      // this.deck = []
-      // this.hand = []
-      // this.wonRound = false
-      // this.wonGame = false
+      this.deck = []
+      this.hand = []
+      this.wonRound = false
+      this.wonGame = false
     }
   }
 
