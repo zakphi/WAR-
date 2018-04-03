@@ -76,19 +76,24 @@ $(() => {
 
   let mainDeck = []
 
-  let player = {
-    deck: [],
-    hand: [],
-    wonRound: false,
-    wonGame: false
+  class Player {
+    constructor(){
+      this.deck = []
+      this.hand = []
+      this.wonRound = false
+      this.wonGame = false
+    }
+
+    reset(){
+      // this.deck = []
+      // this.hand = []
+      // this.wonRound = false
+      // this.wonGame = false
+    }
   }
 
-  let computer = {
-    deck: [],
-    hand: [],
-    wonRound: false,
-    wonGame: false
-  }
+  let player = new Player
+  let computer = new Player
 
   let handLength = 0
 
