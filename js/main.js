@@ -68,10 +68,12 @@ $(() => {
     $('<p>').text('instructions go here').appendTo('#help-screen')
   }
 
-  let Card = function(suit, faceVal, numVal){
-    this.suit = suit
-    this.faceVal = faceVal
-    this.numVal = numVal
+  class Card {
+    constructor(suit, faceVal, numVal){
+      this.suit = suit
+      this.faceVal = faceVal
+      this.numVal = numVal
+    }
   }
 
   let mainDeck = []
