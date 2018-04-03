@@ -43,14 +43,14 @@ $(() => {
 
     $(document).on('click', '#flip-cards-btn', flipCards)
 
-    $('<div>').attr('id', 'player').appendTo('#game-screen')
+    $('<div>').attr('id', 'human').appendTo('#game-screen')
 
     $('<div>', {
       'class': 'deck',
-      'text': `Player Cards: ${player.deck.length}`
-    }).appendTo('#player')
+      'text': `Player Cards: ${human.deck.length}`
+    }).appendTo('#human')
 
-    $('<div>').attr('class', 'hand').appendTo('#player')
+    $('<div>').attr('class', 'hand').appendTo('#human')
 
     $('<div>').attr('id', 'computer').appendTo('#game-screen')
 
@@ -92,7 +92,7 @@ $(() => {
     }
   }
 
-  let player = new Player
+  let human = new Player
   let computer = new Player
 
   let handLength = 0
@@ -132,24 +132,24 @@ $(() => {
   }
 
   function splitDeck(){
-    player.deck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
+    human.deck = mainDeck.splice(0, Math.floor(mainDeck.length / 2))
     computer.deck = mainDeck
   }
 
   function renderCards(handLength, startIndex = 0){
     while(startIndex < handLength){
-      $('<div>').attr('class', `card${startIndex + 1}`).appendTo('#player .hand, #computer .hand')
+      $('<div>').attr('class', `card${startIndex + 1}`).appendTo('#human .hand, #computer .hand')
 
-      if(player.hand[startIndex]){
+      if(human.hand[startIndex]){
         $('<span>', {
           'class': 'face-val',
-          'text': player.hand[startIndex].faceVal
-        }).appendTo(`#player .hand .card${startIndex + 1}`)
+          'text': human.hand[startIndex].faceVal
+        }).appendTo(`#human .hand .card${startIndex + 1}`)
         $('<span>', {
           'class': 'suit',
-          'text': player.hand[startIndex].suit
-        }).appendTo(`#player .hand .card${startIndex + 1}`)
-        $(`#player .hand .card${startIndex + 1}`).addClass(player.hand[startIndex].suit)
+          'text': human.hand[startIndex].suit
+        }).appendTo(`#human .hand .card${startIndex + 1}`)
+        $(`#human .hand .card${startIndex + 1}`).addClass(human.hand[startIndex].suit)
       }
 
       if(computer.hand[startIndex]){
@@ -169,13 +169,13 @@ $(() => {
   }
 
   function flipCards(){
-   if(player.deck.length && computer.deck.length){
-     player.hand.push(player.deck.shift())
+   if(human.deck.length && computer.deck.length){
+     human.hand.push(human.deck.shift())
      computer.hand.push(computer.deck.shift())
 
      $('.hand').children().length && $('[class^=card]').remove()
 
-     handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+     handLength = (human.hand.length > computer.hand.length) ? human.hand.length : computer.hand.length
      renderCards(handLength)
 
      compareHands()
@@ -183,13 +183,13 @@ $(() => {
   }
 
   function compareHands(){
-    let playerCardToCompare = player.hand[player.hand.length - 1].numVal
+    let humanCardToCompare = human.hand[human.hand.length - 1].numVal
     let computerCardToCompare = computer.hand[computer.hand.length - 1].numVal
 
-    if(playerCardToCompare > computerCardToCompare){
-      player.wonRound = true
+    if(humanCardToCompare > computerCardToCompare){
+      human.wonRound = true
       moveToWinnerDeck()
-    } else if(computerCardToCompare > playerCardToCompare){
+    } else if(computerCardToCompare > humanCardToCompare){
       computer.wonRound = true
       moveToWinnerDeck()
     } else {
@@ -200,14 +200,14 @@ $(() => {
   }
 
   function war(){
-    let startIndex = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+    let startIndex = (human.hand.length > computer.hand.length) ? human.hand.length : computer.hand.length
 
     for(let i = 0; i < 4; i++){
-      player.deck.length && player.hand.push(player.deck.shift())
+      human.deck.length && human.hand.push(human.deck.shift())
       computer.deck.length && computer.hand.push(computer.deck.shift())
     }
 
-    handLength = (player.hand.length > computer.hand.length) ? player.hand.length : computer.hand.length
+    handLength = (human.hand.length > computer.hand.length) ? human.hand.length : computer.hand.length
 
     renderCards(handLength, startIndex)
 
@@ -215,24 +215,24 @@ $(() => {
   }
 
   function moveToWinnerDeck(){
-    player.wonRound ? player.deck = player.deck.concat(player.hand, computer.hand) : null
-    computer.wonRound ? computer.deck = computer.deck.concat(computer.hand, player.hand) : null
+    human.wonRound ? human.deck = human.deck.concat(human.hand, computer.hand) : null
+    computer.wonRound ? computer.deck = computer.deck.concat(computer.hand, human.hand) : null
 
-    player.hand = []
+    human.hand = []
     computer.hand = []
 
-    player.wonRound = false
+    human.wonRound = false
     computer.wonRound = false
 
-    $('#player .deck').text(`Player Cards: ${player.deck.length}`)
+    $('#human .deck').text(`Player Cards: ${human.deck.length}`)
     $('#computer .deck').text(`Computer Cards: ${computer.deck.length}`)
   }
 
   function checkForWinner(){
     console.log('check for winner')
 
-    if(player.deck.length == 52){
-      player.wonGame = true
+    if(human.deck.length == 52){
+      human.wonGame = true
       createEndGameScreen()
     } else if(computer.deck.length == 52){
       computer.wonGame = true
@@ -243,9 +243,32 @@ $(() => {
   function createEndGameScreen(){
     $('#flip-cards-btn').remove()
 
-    winner = player.wonGame ? 'player' : 'computer'
+    $('<div>').attr('id', 'end-game-screen').insertBefore('#game-screen')
 
-    $('h2').length == 0 && $('<h2>').text(`${winner} won`).insertAfter('header')
+    winner = human.wonGame ? 'human' : 'computer'
+
+    $('h2').length == 0 && $('<h2>').text(`${winner} won`).appendTo('#end-game-screen')
+
+    let replayBtn = $('<button>', {
+      'id': 'replay-btn',
+      'text': 'replay'
+    })
+
+    $('#replay-btn').length == 0 && replayBtn.appendTo('#end-game-screen')
+
+    $(document).one('click', '#replay-btn', replayGame)
+  }
+
+  function replayGame(){
+    console.log('replay game')
+    $('#end-game-screen').remove()
+    $('#game-screen').remove()
+
+    mainDeck = []
+    human.reset()
+    computer.reset()
+
+    createGameScreen()
   }
 
   createGame()
