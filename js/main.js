@@ -76,8 +76,6 @@ $(() => {
     }
   }
 
-  let mainDeck = []
-
   class Player {
     constructor(){
       this.deck = []
@@ -96,7 +94,7 @@ $(() => {
 
   let human = new Player
   let computer = new Player
-
+  let mainDeck = []
   let handLength = 0
 
   function createDeck(){
