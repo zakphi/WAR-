@@ -231,10 +231,10 @@ $(() => {
   function checkForWinner(){
     console.log('check for winner')
 
-    if(human.deck.length == 52){
+    if(human.deck.length === 52){
       human.wonGame = true
       createEndGameScreen()
-    } else if(computer.deck.length == 52){
+    } else if(computer.deck.length === 52){
       computer.wonGame = true
       createEndGameScreen()
     }
@@ -247,14 +247,14 @@ $(() => {
 
     endGameMessage = human.wonGame ? 'You Won!' : 'You Lost!'
 
-    $('h2').length == 0 && $('<h2>').text(`${endGameMessage}`).appendTo('#end-game-screen')
+    $('h2').length === 0 && $('<h2>').text(`${endGameMessage}`).appendTo('#end-game-screen')
 
     let replayBtn = $('<button>', {
       'id': 'replay-btn',
       'text': 'replay'
     })
 
-    $('#replay-btn').length == 0 && replayBtn.appendTo('#end-game-screen')
+    $('#replay-btn').length === 0 && replayBtn.appendTo('#end-game-screen')
 
     $(document).one('click', '#replay-btn', replayGame)
   }
