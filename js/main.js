@@ -245,9 +245,9 @@ $(() => {
 
     $('<div>').attr('id', 'end-game-screen').insertBefore('#game-screen')
 
-    winner = human.wonGame ? 'human' : 'computer'
+    endGameMessage = human.wonGame ? 'You Won!' : 'You Lost!'
 
-    $('h2').length == 0 && $('<h2>').text(`${winner} won`).appendTo('#end-game-screen')
+    $('h2').length == 0 && $('<h2>').text(`${endGameMessage}`).appendTo('#end-game-screen')
 
     let replayBtn = $('<button>', {
       'id': 'replay-btn',
