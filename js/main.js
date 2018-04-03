@@ -192,14 +192,36 @@ $(() => {
     } else if(computerCardToCompare > humanCardToCompare){
       computer.wonRound = true
       moveToWinnerDeck()
-    } else {
-      war()
+    } else if(computerCardToCompare === humanCardToCompare) {
+      $('#flip-cards-btn').remove()
+      $(document).off('click', '#flip-cards-btn', flipCards)
+
+      let warBtn = $('<button>', {
+        'id': 'war-btn',
+        'text': 'war'
+      })
+
+      $('#war-btn').length === 0 && warBtn.appendTo('#game-screen').insertBefore('#human')
+
+      $(document).on('click', '#war-btn', war)
     }
 
     checkForWinner()
   }
 
   function war(){
+    $('#war-btn').remove()
+    $(document).off('click', '#war-btn', war)
+
+    let flipBtn = $('<button>', {
+      'id': 'flip-cards-btn',
+      'text': 'flip'
+    })
+
+    $('#flip-cards-btn').length === 0 && flipBtn.appendTo('#game-screen').insertBefore('#human')
+
+    $(document).on('click', '#flip-cards-btn', flipCards)
+
     let startIndex = (human.hand.length > computer.hand.length) ? human.hand.length : computer.hand.length
 
     for(let i = 0; i < 4; i++){
