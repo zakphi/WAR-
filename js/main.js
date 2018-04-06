@@ -45,15 +45,6 @@ $(() => {
 
     $('<div>').attr('id', 'players').appendTo('#game-screen')
 
-    $('<div>').attr('id', 'human').appendTo('#players')
-
-    $('<div>', {
-      'class': 'deck',
-      'text': `Player Cards: ${human.deck.length}`
-    }).appendTo('#human')
-
-    $('<div>').attr('class', 'hand').appendTo('#human')
-
     $('<div>').attr('id', 'computer').appendTo('#players')
 
     $('<div>', {
@@ -62,6 +53,15 @@ $(() => {
     }).appendTo('#computer')
 
     $('<div>').attr('class', 'hand').appendTo('#computer')
+
+    $('<div>').attr('id', 'human').appendTo('#players')
+
+    $('<div>', {
+      'class': 'deck',
+      'text': `Player Cards: ${human.deck.length}`
+    }).appendTo('#human')
+
+    $('<div>').attr('class', 'hand').appendTo('#human').insertBefore('#human .deck')
   }
 
   function createHelpScreen(){
