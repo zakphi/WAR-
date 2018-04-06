@@ -1,15 +1,32 @@
+#game-screen, #players, #human, #computer{
+  display: flex;
+  flex-direction: column;
+}
+
 .deck, [class^=card]{
   width: 100px;
   height: 150px;
   border-radius: 5%;
 }
 
-#computer .deck{
-  background-color: blue;
+.deck{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #eee;
+  margin: 0 auto;
 }
 
-#human .deck{
-  background-color: red;
+.hand{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[class^=card]{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 /*
@@ -27,9 +44,23 @@
   color: red
 }
 
-[class^=card]{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#computer .deck{
+  background-color: blue;
+}
+
+#human .deck{
+  background-color: red;
+}
+
+#war-btn, #flip-cards-btn{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid black;
+  background-color: transparent;
+  padding: 0;
+}
+
+#war-btn:focus, #flip-cards-btn:focus{
+  outline: none;
 }
