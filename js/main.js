@@ -140,9 +140,8 @@ $(() => {
 
   function renderCards(handLength, startIndex = 0){
     while(startIndex < handLength){
-      $('<div>').attr('class', `card${startIndex + 1}`).appendTo('#human .hand, #computer .hand')
-
       if(human.hand[startIndex]){
+        $('<div>').attr('class', `card${startIndex + 1}`).appendTo('#human .hand')
         $('<span>', {
           'class': 'face-val',
           'text': human.hand[startIndex].faceVal
@@ -155,6 +154,7 @@ $(() => {
       }
 
       if(computer.hand[startIndex]){
+        $('<div>').attr('class', `card${startIndex + 1}`).appendTo('#computer .hand')
         $('<span>', {
           'class': 'face-val',
           'text': computer.hand[startIndex].faceVal
