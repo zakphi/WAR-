@@ -253,8 +253,6 @@ $(() => {
   }
 
   function checkForWinner(){
-    console.log('check for winner')
-
     if(human.deck.length === 52){
       human.wonGame = true
       createEndGameScreen()
@@ -284,7 +282,6 @@ $(() => {
   }
 
   function replayGame(){
-    console.log('replay game')
     $('#end-game-screen').remove()
     $('#game-screen').remove()
 
