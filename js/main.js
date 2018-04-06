@@ -43,7 +43,9 @@ $(() => {
 
     $(document).on('click', '#flip-cards-btn', flipCards)
 
-    $('<div>').attr('id', 'human').appendTo('#game-screen')
+    $('<div>').attr('id', 'players').appendTo('#game-screen')
+
+    $('<div>').attr('id', 'human').appendTo('#players')
 
     $('<div>', {
       'class': 'deck',
@@ -52,7 +54,7 @@ $(() => {
 
     $('<div>').attr('class', 'hand').appendTo('#human')
 
-    $('<div>').attr('id', 'computer').appendTo('#game-screen')
+    $('<div>').attr('id', 'computer').appendTo('#players')
 
     $('<div>', {
       'class': 'deck',
@@ -201,7 +203,7 @@ $(() => {
         'text': 'war'
       })
 
-      $('#war-btn').length === 0 && warBtn.appendTo('#game-screen').insertBefore('#human')
+      $('#war-btn').length === 0 && warBtn.appendTo('#game-screen').insertBefore('#players')
 
       $(document).on('click', '#war-btn', war)
     }
@@ -218,7 +220,7 @@ $(() => {
       'text': 'flip'
     })
 
-    $('#flip-cards-btn').length === 0 && flipBtn.appendTo('#game-screen').insertBefore('#human')
+    $('#flip-cards-btn').length === 0 && flipBtn.appendTo('#game-screen').insertBefore('#players')
 
     $(document).on('click', '#flip-cards-btn', flipCards)
 
