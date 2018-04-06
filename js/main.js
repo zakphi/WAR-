@@ -171,17 +171,17 @@ $(() => {
   }
 
   function flipCards(){
-   if(human.deck.length && computer.deck.length){
-     human.hand.push(human.deck.shift())
-     computer.hand.push(computer.deck.shift())
+    if(human.deck.length && computer.deck.length){
+      human.hand.push(human.deck.shift())
+      computer.hand.push(computer.deck.shift())
 
-     $('.hand').children().length && $('[class^=card]').remove()
+      $('.hand').children().length && $('[class^=card]').remove()
 
-     handLength = (human.hand.length > computer.hand.length) ? human.hand.length : computer.hand.length
-     renderCards(handLength)
+      handLength = (human.hand.length > computer.hand.length) ? human.hand.length : computer.hand.length
+      renderCards(handLength)
 
-     compareHands()
-   }
+      compareHands()
+    }
   }
 
   function compareHands(){
